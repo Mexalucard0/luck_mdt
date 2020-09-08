@@ -1,0 +1,1108 @@
+<html style="overflow-y: hidden;">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <style media="screen">
+  body {
+    font-family: 'Varela Round', sans-serif;
+    display: none;
+    font-style: normal;
+    font-size: 13px;
+  }
+
+  @keyframes slideOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideInLeft2 {
+  from {
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes slideInRight2 {
+  from {
+    -webkit-transform: translate3d(10%, 0, 0);
+    transform: translate3d(10%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+  #content {
+    position: absolute;
+    width: 75%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4.2857142857vmin;
+    background: rgb(94,94,94);
+    background: linear-gradient(0deg, rgba(94,94,94,1) 0%, rgba(175,175,175,1) 100%); 
+    border: solid #000000 2vmin;
+    box-shadow: 0 0.5em 2em 0.2em rgba(0, 0, 0, 0.33), 0 0 0 0.5px #000 inset;
+  }
+  #badge {
+    position: fixed;
+    display: inline-block;
+    left: 3%;
+    top: 2%;
+    max-width: 175px;
+    height: auto;
+  }
+  #main {
+    position: relative;
+    text-align: center;
+    top: 10%;
+    width: 80%;
+    margin: auto;
+  }
+  #banner {
+    position: fixed;
+    display: inline-block;
+    bottom: 10%;
+    right: 1%;
+    max-width: 300px;
+    height: auto;
+    opacity: 0.3;
+  }
+  #mugshot {
+    width: 355px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: 40px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    user-select: none;
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+  }
+  .report-input {
+    font-family: 'Varela Round', sans-serif;
+    border-width:0px;
+    border:none;
+    color: #000000;
+ 
+    width: 550px;
+    font-size: 12pt;
+    padding: 7px 15px 5px 15px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  .page-title {
+margin-bottom: 0px;
+        }
+  .line {
+    z-index: 0;
+  	position: fixed;
+  	position: fixed;
+  	width: 7%;
+  	height: 100%;
+  	background-color: #000000;
+  }
+
+
+  .nav-active {
+    color: #ff0000;
+  }
+  .noselect {
+    user-select: none;
+  }
+  .left-side {
+    z-index: 0;
+    animation-iteration-count: 1;
+    float: left;
+    max-width: 50%;
+    max-height: 600px;
+    top: -25%;
+    overflow-y: auto;
+    height: auto;
+    text-align: left;
+    user-select: none;
+  }
+  .left-side2 {
+    animation-name: slideInLeft2;
+    animation-duration: 4s;
+    z-index: 0;
+    animation-iteration-count: 1;
+    float: left;
+    max-width: 50%;
+    max-height: 600px;
+    top: -25%;
+    overflow-y: auto;
+    height: auto;
+    text-align: left;
+    user-select: none;
+  }
+  .right-side {
+    animation-name: slideInRight2;
+    animation-duration: 4s;
+    z-index: 0;
+    animation-iteration-count: 1;
+    position: absolute;
+    left: 65%;
+    right: 10%;
+    width: 35%;
+    max-width: 300%;
+    max-height: 700px;
+    overflow-y: auto;
+    height: auto;
+    text-align: left;
+    user-select: none;
+  }
+  .modal {
+    z-index: 3;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.7)
+  }
+  .modal-content {
+    margin: auto;
+    background-color: #ffffff;
+    position: relative;
+    padding: 20px 20px;
+    outline: 2px solid rgb(0, 0, 0);
+    top: 40%;
+    width: 30%;
+  }
+  br {
+    user-select: none;
+  }
+  h2, h3 {
+    font-family: 'Trebuchet MS', sans-serif;
+    user-select: none;
+    background-color: initial !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: rgb(0, 0, 0) !important;
+    display: inline-block !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+  }
+
+  h4 {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    user-select: none;
+    color: #000000;
+    margin: 0px 0px 0px 0px;
+  }
+  p {
+    font-family: 'Varela Round', sans-serif;
+    color: rgb(0, 0, 0);
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 88px;
+  }
+  li {
+    animation-name: slideInLeft;
+    animation-duration: 2s;
+    z-index: 999;
+    animation-iteration-count: 1;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    float: left;
+    padding-top: 10px;
+    margin: 0px 10px;
+  }
+  li:last-child {
+    border-right: none;
+  }
+.godofluck {
+			background: #ffffff;
+			color: #000000;
+            z-index: 999;
+			border-radius: 25px 65px;
+			padding: 10px;
+			width: 55px;
+		    text-align: center;
+        }
+        
+.godofluck2 {
+			background: #000000;
+            animation-name: slideInRight2;
+    animation-duration: 4s;
+    z-index: -1;
+    animation-iteration-count: 1;
+			color: #ffffff;
+            z-index: 5;
+			border-radius: 25px 65px;
+			padding: 10px;
+			width: 55px;
+		    text-align: center;
+        }
+
+  button {
+    box-sizing: border-box !important;
+    background-color: initial !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    color: rgb(0, 0, 0) !important;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    height: 2.0em !important;
+    border: solid 2px rgb(0, 0, 0);
+    border-radius: 65px;
+    font-size: 12pt;
+    text-align: center;
+    padding: 0 1.75em !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    margin-bottom: 2rem !important;
+        }
+  button:hover{
+    color: #ffffff !important;
+  }
+  input {
+    background-color: transparent;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    border: 2px solid #000000;
+    white-space: pre-line;
+    white-space: pre-wrap;
+    color: #000000;
+    border-radius: 30px;
+    font-size: 12pt;
+    padding: 7px 15px 5px 15px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  textarea {
+    background-color: transparent;
+    white-space: pre-line;
+    white-space: pre-wrap;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bolder;
+    font-size: 14px;
+    border-width:0px;
+    border-radius: 15px;
+    border:none;
+    color: #000000;
+    font-size: 12pt;
+    padding: 7px 15px 5px 15px;
+    width: 550px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    text-align: left;
+    outline: none;
+  }
+  th {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    padding: 0px 0px;
+    text-align: center;
+    border-bottom: 2px solid rgb(0, 0, 0);
+  }
+  td {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid rgb(0, 0, 0);
+  }
+  table {
+    border-collapse: collapse;
+    column-gap: 2px solid rgb(0, 0, 0);
+  }
+  table td + td {
+    border-left: 2px solid rgb(0, 0, 0);
+  }
+  table th + th {
+    border-left: 2px solid rgb(0, 0, 0);
+  }
+  input:focus {
+    outline: none;
+  }
+  button:focus {
+    outline: none;
+  }
+  button:hover {
+    background-color: #d3d3d3;
+    border-color: #d3d3d3;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    display: none;
+  }
+
+
+</style>
+</head>
+<body>
+  <div id="content">
+    <div class="line" style="left: 0%;"></div>
+
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <div class="noselect" v-on:click="closeMDT()" style="position: fixed; right: 2%; border-radius: 25px; top: 2.5%"><i style="border-radius: 55px;" class="fa fa-window-close godofluck2"></i></div>
+ <div style="position: fixed; left: 2.5%; top: 0%;">
+    <p class="noselect" style="font-family: 'Varela Round', sans-serif; animation-name: slideInLeft; animation-duration: 3s; animation-iteration-count: 1; color:rgb(255, 255, 255); font-weight: 700; font-style: italic; font-size: 18pt; text-align: center;">L</p>
+        
+    <p class="noselect" style="font-family: 'Varela Round', sans-serif; animation-name: slideInLeft; animation-duration: 3s; animation-iteration-count: 1; color:rgb(255, 255, 255); font-weight: 700; font-style: italic; font-size: 18pt; text-align: center;">S</p>
+
+    <p class="noselect" style="font-family: 'Varela Round', sans-serif; animation-name: slideInLeft; animation-duration: 3s; animation-iteration-count: 1; color:rgb(255, 255, 255); font-weight: 700; font-style: italic; font-size: 18pt; text-align: center;">P</p>
+
+    <p class="noselect" style="font-family: 'Varela Round', sans-serif; animation-name: slideInLeft; animation-duration: 3s; animation-iteration-count: 1; color:rgb(255, 255, 255); font-weight: 700; font-style: italic; font-size: 18pt; text-align: center;">D</p>
+ </div>
+    <div style="position: fixed; left: -6%; top: 26.5%; ">
+        <ul>
+   
+     
+            <li  v-on:click="changePage('Home')" id="home" class="noselect"> <i class="fa fa-home godofluck"></i></li>
+            <br /> 
+            <li v-on:click="changePage('Search Offenders')" id="search-offenders" class="noselect"><i class="fa fa-user godofluck"></i></li>
+            <br /> 
+            <li v-on:click="changePage('Search Vehicles')" id="search-vehicles" class="noselect"><i class="fa fa-car godofluck"></i></li>
+            <br /> 
+            <li class="kapat" v-on:click="changePage('Submit Report')" id="submit-report" class="noselect"><i class="fa fa-newspaper-o godofluck"></i></li>
+            <br /> 
+            <li class="kapat" v-on:click="changePage('Warrants')" id="warrants" class="noselect"><i class="fa fa-user-secret godofluck"></i></li>
+            <br /> 
+            <li v-on:click="changePage('Search Reports')" id="search-reports" class="noselect"><i class="fa fa-search godofluck"></i></li>
+            <br /> 
+            <li v-on:click="changePage('Faturalar')" id="faturalar" class="noselect"><i class="fa fa-money  godofluck"></i></li>
+            <br /> 
+            <li v-on:click="changePage('Chat')" id="chat" class="noselect"><i class="fa fa-comment  godofluck"></i></li>
+            <br /> 
+            <li v-on:click="mobese()" id="search-reports" class="noselect"><i class="fa fa-camera godofluck"></i></li>
+            <br /> 
+             <li v-if="jobgrade == '3'" v-on:click="changePage('Hack')" id="hack" class="noselect"><i class="fa fa-desktop godofluck"></i></li> 
+            <br /> 
+
+       </ul>
+
+  </div>
+ 
+
+
+  <main id="main" style="height: 550px;">
+    <div v-if="page == 'Home'">
+
+
+        <div class="left-side2" style="width: 400px; position: absolute; top: 65%; ">
+            <h3><i class="fa fa-users"></i> SON ARANANLAR</h3>
+            <br />
+            <h4 v-if="recent_searches.person.length == 0"> ... </h4>
+            <span v-else-if="recent_searches.person.length > 0" v-for="person in recent_searches.person">
+                <button type="button" class="noselect" v-on:click="OpenOffenderDetailsById(person.id);" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ person.firstname }}  {{person.lastname}} </button>
+                <br />
+            </span>
+        </div>
+
+        
+        <div class="right-side" style="width: 400px; position: absolute; top: 65%;">
+          <h3><i class="fa fa-car"></i> SON ARANAN ARAÇLAR</h3>
+          <br />
+          <h4 v-if="recent_searches.vehicle.length == 0"> ... </h4>
+          <span v-else-if="recent_searches.vehicle.length > 0" v-for="vehicle in recent_searches.vehicle">
+              <button type="button" class="noselect" v-on:click="OpenVehicleDetails(vehicle);" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ vehicle.plate }} </button>
+              <br />
+          </span>
+      </div>
+
+      <div class="left-side2" style="width: 400px; position: absolute; top: 5%; float: unset;">
+        <h3><i class="fa fa-user-secret"></i> ARANAN KİŞİLER</h3>
+        <br />
+        <h4 v-if="homepage.warrants == false"> ... </h4>
+        <span v-else-if="homepage.warrants != false" v-for="warrant in homepage.warrants">
+            <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ warrant.date }} - ID: {{ warrant.id }} </h4>
+            <button type="button" class="noselect" v-on:click="warrant_selected = warrant; changePage('Warrant Details');" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ warrant.name }} </button>
+            <br />
+        </span>
+    </div>
+
+                <div class="right-side" style="width: 400px; position: absolute; top: 5%; float: unset;">
+            <h3><i class="fa fa-newspaper-o"></i> SON SİCİL KAYITLARI</h3>
+            <br />
+            <span v-if="homepage.reports" v-for="result in homepage.reports">
+                <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                <button type="button" class="noselect" v-on:click="report_selected = result; changePage('Search Reports');" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                <br />
+            </span>
+        </div>
+ 
+        <div  class="left-side2" style=" position: absolute; top: 100%; ">
+            <h3><i class="fa fa-newspaper-o"></i> TOPLAM SABIKA</h3>
+            <br />
+            <button type="button" class="noselect" v-on:click="changePage('Search Reports');" style="margin-bottom: 10px; font-size: 20px;">  {{ homepage.sabika }} </button>
+        </div>
+
+        <div  class="right-side" style="position: absolute; top: 100%; ">
+            <h3><i class="fa fa-newspaper-o"></i> TOPLAN ARANANLAR</h3>
+            <br />
+            <button type="button" class="noselect" v-on:click="changePage('Warrants');" style="margin-bottom: 10px; font-size: 20px;">  {{ homepage.arananlar }} </button>
+        </div>
+
+
+        <div style="bottom: 0%; position: absolute; margin: 0 auto; width: 100%;">
+            <br />
+        </div>
+    </div>
+
+
+
+    <div v-if="page == 'Search Vehicles'">
+   
+
+        <form class="noselect">
+            <input v-model="vehicle_search" type="text" class="noselect" placeholder="Plaka Adı" required>
+            <button v-on:click="VehicleSearch()" type="button" class="noselect">ARA</button>
+        </form>
+        
+
+
+        <div class="left-side">
+            <h3>KAYIT</h3>
+            <h4 v-if="vehicle_selected.plate"> {{vehicle_selected.plate}} </h4>
+            <h4 v-else-if="vehicle_selected.plate == null"> ... </h4>
+            <h3>TİP</h3>
+            <h4 v-if="vehicle_selected.type"> {{vehicle_selected.type}} </h4>
+            <h4 v-else-if="vehicle_selected.type == null"> ... </h4>
+            <h3>SAHİBİ</h3>
+            <h4 v-if="vehicle_selected.owner" v-on:click="OpenOffenderDetailsById(vehicle_selected.owner_id)"> {{vehicle_selected.owner}} </h4>
+            <h4 v-else-if="vehicle_selected.owner == null"> ... </h4>
+            <h3>MODEL</h3>
+            <h4 v-if="vehicle_selected.model"> {{vehicle_selected.model}} </h4>
+            <h4 v-else-if="vehicle_selected.model == null"> ... </h4>
+            <h3>RENK</h3>
+            <h4 v-if="vehicle_selected.color"> {{vehicle_selected.color}} </h4>
+            <h4 v-else-if="vehicle_selected.color == null"> ... </h4>
+        </div>
+
+        <div class="right-side" style="max-height: 705px; max-width: 600px; right: 55%">
+            <div v-if="vehicle_results.results">
+                <h3>ARAMA SONUÇLARI</h3>
+                <h4 style="margin: 10px 1px 30px 1px;">'{{ vehicle_results.query }}' İçin Arama Sonuçları...</h4>
+                <span v-if="vehicle_results.results" v-for="result in vehicle_results.results">
+                    <button type="button" class="noselect" v-on:click="OpenVehicleDetails(result)" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.plate }} </button>
+                    <br />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div v-if="page == 'Hack'" style=" margin-top: 5%; " >  
+
+        <div class="left-side" v-if="home.type == 'home'" style="max-height: 450px; top: 40%; width: 500px;">
+            <br />
+            <h4>{{ home.error }}</h4>
+        </div>
+
+        <div class="left-side"  v-if="home.type == 'tel'" style="max-height:  450px; top: 40%; width: 500px;">
+            <h4> Telefon Lokasyon </h4>
+            <input style="margin-top: 10px; " v-model="home.tel" type="number" class="noselect" placeholder="Telefon Numarası" required>
+            <br />
+            <button type="button" style="margin-top: 10px; " v-on:click="telkonum()" id="report-details" class="noselect">BUL</button>
+            <br />
+    
+        </div>
+
+        <div class="left-side"  v-if="home.type == 'tel-no'" style="max-height: 450px; top: 40%; width: 500px;">
+            <h4> İsim Soyisim </h4>
+            <input style="margin-top: 10px; " v-model="home.tel" type="number" class="noselect" placeholder="Number" required>
+            <br />
+            <button type="button" style="margin-top: 10px; " v-on:click="telno()" id="report-details" class="noselect">BUL</button>
+            <br />
+        </div>
+        
+        <div class="right-side" style="max-height: 650px; width: 400px; right: -405px;">
+
+                    <button type="button" class="noselect" v-on:click="elektrikkes()" style="margin-bottom: 10px; width: 100%; padding: unset;"> Şebekeye Gir </button>            
+                    <button type="button" class="noselect" v-on:click="hackType('tel')" style="margin-bottom: 10px; width: 100%; padding: unset;"> Numaradan Konum Bul  </button>  
+                    <button type="button" class="noselect" v-on:click="hackType('tel-no')" style="margin-bottom: 10px; width: 100%; padding: unset;"> İsim Soyisim Bulma  </button> 
+                    <br />         
+        </div>
+        
+    </div>
+
+
+
+    <div v-if="page == 'Search Reports'">
+
+      
+
+        <form class="noselect">
+            <input v-model="report_search" type="text" class="noselect" placeholder="İsim veya Rapor Kimliği" required>
+            <button v-on:click="ReportSearch()" type="button" class="noselect" >ARA</button>
+        </form>
+        
+   
+
+        <div class="left-side" style="max-height: 600px; width: 400px;">
+            <h3>VERİ</h3>
+            <h4 v-if="report_selected.date"> {{ report_selected.date }} </h4>
+            <h4 v-else-if="report_selected.date == null"> ... </h4>
+            <h3>İSİM</h3>
+            <h4 v-if="report_selected.name" v-on:click="OpenOffenderDetailsById(report_selected.char_id);"> {{ report_selected.name }} </h4>
+            <h4 v-else-if="report_selected.name == null"> ... </h4>
+            <h3>OLAY #{{ report_selected.id}}</h3>
+            <h4 v-if="report_selected.title"> {{ report_selected.title }} </h4>
+            <h4 v-else-if="report_selected.title == null"> ... </h4>
+            <h3>SUÇLARI</h3>
+            <h4 v-if="report_selected.charges == null"> ... </h4>
+            <span v-for="(amount, offense in report_selected.charges" :key="offense">
+                <h4>
+                    {{ offense }} (x{{ amount }})
+                </h4>
+            </span>
+            <h4 v-if="report_selected.jailtime">Sentence: {{ report_selected.jailtime }} months</h4>
+            <h3>ETKİNLİK MEMURU</h3>
+            <h4 v-if="report_selected.author"> {{ report_selected.author }} </h4>
+            <h4 v-else-if="report_selected.author == null"> ... </h4>
+            <br />
+            <button v-if="report_selected.date" type="button" v-on:click="changePage('Report Details')" id="report-details" class="noselect">SİCİL KAYDINI GÖSTER</button>
+            <button class="kapat" v-if="report_selected.date" type="button" v-on:click="changePage('Submit Report'); report_new.charges = report_selected.charges; report_new.title = report_selected.title; report_new.incident = report_selected.incident;" id="report-details" class="noselect">RAPORU KOPYALA</button>
+            <button class="kapat" v-if="report_selected.date" type="button" v-on:click="changePage('Submit Warrant'); warrant_new.report_id = report_selected.id; warrant_new.char_id = report_selected.char_id; warrant_new.report_title = report_selected.title; warrant_new.name = report_selected.name; warrant_new.charges = report_selected.charges;" class="noselect">YENİ KAYIT</button>
+            <button class="kapat" type="button" style="margin-top: 5px;" v-on:click="changePage('Submit Report')" class="noselect">RAPOR OLUŞTUR</button>
+        </div>
+
+        <div class="right-side" style="max-height: 450px; width: 600px; margin-left: -125px;">
+            <div v-if="report_results.results">
+                <h3>ARAMA SONUÇLARI</h3>
+                <h4 style="margin: 10px 1px 30px 1px;">'{{ report_results.query }}' İçin Arama Sonuçları ...</h4>
+                <span v-if="report_results.results" v-for="result in report_results.results">
+                    <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                    <button type="button" class="noselect" v-on:click="report_selected = result;" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                    <br />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div v-if="page == 'Submit Report'">
+
+        
+        <div class="left-side" style="z-index: 1; position:absolute; top: 20%; max-height: 800px; width: 600px;">
+            <form class="noselect">
+                <h3>İSİM</h3>
+                <h4 v-if="report_new.name" style="font-size: 14px;"> {{ report_new.name }} </h4>
+                <h4 v-else-if="report_new.name == null"> ... </h4>
+                
+                <input v-model="report_new.title" style="font-size: 14px;" type="text" class="noselect" placeholder="Rapor başlığını girin" class="report-input" required>
+                <h3>‏‏‎ ‎</h3>
+                <textarea v-model="report_new.incident" id="textarea2" style="font-size: 14px; border: 2px solid #000000; padding: 7px 15px 5px 15px;" class="noselect" rows="6" cols="55" placeholder="Rapor açıklamasını girin" onkeypress='this.style.height = "";this.style.height = this.scrollHeight + "px"' required>
+                </textarea>
+                <h3>SUÇLARI</h3>
+                <h4 v-if="Object.keys(report_new.charges).length == 0"> ... </h4>
+                <span v-for="(amount, offense in report_new.charges" :key="offense">
+                    <h4 style="font-size: 14px;">
+                        <span v-on:click="RemoveCharge(offense)" style="color: red; font-weight: all;">(-)</span> 
+                        {{ offense }} (x{{ amount }})
+                    </h4>
+                </span>
+                <h4 v-if="report_new.recommended_fine > 0">Toplam Para Cezası: ${{report_new.recommended_fine}}</h4>
+                <h4 v-if="report_new.recommended_sentence > 0">Önerilen Karar: {{report_new.recommended_sentence}} ay</h4>
+                <h3 v-if="report_new.recommended_sentence > 0">KARAR</h3>
+                <input v-if="report_new.recommended_sentence > 0" v-model="report_new.sentence" style="font-size: 14px; margin-bottom: 5px;" type="text" class="noselect" placeholder="Enter months" class="report-input" required>
+                <br />
+                <button v-if="report_new.char_id && Object.keys(report_new.charges).length > 0 && report_new.incident && report_new.title && ((report_new.recommended_sentence > 0 && report_new.sentence) || report_new.recommended_sentence == 0)" v-on:click="SubmitNewReport()" type="button" class="noselect" style="margin-top: 20px">RAPORU ONAYLA</button>
+                <button class="kapat" v-if="report_new.focus == 'charges'" v-on:click="report_new.focus = 'name'" type="button" class="noselect" style="margin-top: 20px">SÜRÜCÜ ARA</button>
+                <button class="kapat" v-if="report_new.focus == 'name'" v-on:click="report_new.focus = 'charges'" type="button" class="noselect" style="margin-top: 20px">ŞİKAYET ARA</button>
+            </form>
+        </div>
+
+        <div class="right-side" style="position: absolute; top: 15%;">
+            <div v-if="report_new.focus == 'name'">
+                <h3 style="margin: 10px 0px">SÜRÜCÜ ARA</h3>
+                <form class="noselect">
+                    <input v-model="offender_search" type="text" class="noselect" placeholder="Tam veya kısmi ad" required>
+                    <button v-on:click="OffenderSearch()" type="button" class="noselect">ARA</button>
+                </form>
+
+                <div v-if="offender_results.query" style="max-height: 335px; max-width: 600px; right: 55%">
+                    <h3>ARAMA SONUÇLARI</h3>
+                    <h4 style="margin: 10px 1px 30px 1px;">'{{ offender_results.query }}' İçin Arama Sonuçları...</h4>
+                    <span v-if="offender_results.results" v-for="offender in offender_results.results">
+                        <button type="button" class="noselect" v-on:click="report_new.char_id = offender.id; report_new.name = offender.firstname + ' ' + offender.lastname; report_new.focus='charges'" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offender.firstname }} {{ offender.lastname }}</button>
+                        <br />
+                    </span>
+                </div>
+            </div>
+
+            <div v-else-if="report_new.focus == 'charges'">
+                <h3 style="margin: 10px 0px">RAPOR ARA</h3>
+                <div v-if="offenses" style="max-height: 800px;">
+                    <form class="noselect">
+                        <input v-model="report_new.charges_search" type="text" class="noselect" placeholder="Suç Ara" style="width: 80%;" required>  
+                    </form>
+                    <span v-for="offense in filtered_offenses">
+                        <button type="button" class="noselect" v-on:click="AddCharge(offense.id)" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offense.label }}</button>
+                        <br />
+                    </span>
+                </div>
+                <h4 v-else-if="offenses == false">Yükleniyor...</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="kapat" v-if="page == 'Faturalar'">
+ 
+        <form class="noselect">
+            <input v-model="faturalar_search" type="text" class="noselect" placeholder="Ara" required>
+        </form>
+
+
+        <div class="right-side" style="max-height: 450px; width: 600px; margin-left: -41%;">
+            <table v-if="filtered_faturalar.length > 0" style="margin: 0 auto;">
+                <tr>
+                    <th>Kesilen Kişi</th>
+                    <th>Kesen Kişi</th>
+                    <th>Suçu</th>
+                    <th>Para Cezası</th>
+                </tr>
+                <tr v-for="faturalar in filtered_faturalar" v-on:click="changePage('Fatura Detay'); faturalar_selected = faturalar; faturalar_selected.names = names; faturalar_selected.name2 = name2;">
+                    <td>{{names}}</td>
+                    <td style="overflow: hidden; text-overflow: ellipsis; max-width: 500px; max-height: 10px;">{{name2}}</td>
+                    <td>{{faturalar.label}}</td>
+                    <td style="padding: 5px;">{{faturalar.amount}}</td>
+                </tr>
+            </table>    
+            <h4 v-else-if="filtered_faturalar.length == 0" style="text-align: center; font-size: 20px; font-weight: bold;"><br />Fatura Bulunamadı!</h4>
+            <div style="bottom: 0%">
+             
+            </div>
+        </div>
+        <button v-on:click="changePage('Submit Faturalar')" type="button" class="noselect" style="margin-top: 470px;">YENİ FATURA</button>
+    </div>
+
+    <div class="kapat" v-if="page == 'Submit Faturalar'">
+   
+
+        <div class="left-side" style="position: absolute; float: none; top: 15%; max-height: 800px;">
+            <form class="noselect">
+                <h3>İSİM</h3>
+                <h4 v-if="faturalar_new.name" style="font-size: 14px;"> {{ faturalar_new.name }} </h4>
+                <h4 v-else-if="faturalar_new.name == null"> ... </h4>
+                <br />
+                <input v-model="faturalar_new.label" style="font-size: 14px; width: 400px;" type="text" class="noselect" placeholder="Başlık Giriniz" class="report-input" required>
+                <br />
+                <br />
+                <input v-model="faturalar_new.amount" style="font-size: 14px; width: 400px;" type="number" class="noselect" placeholder="Ücret Giriniz" class="report-input" required>
+      
+                <button v-if="faturalar_new.name && faturalar_new.label && faturalar_new.amount" v-on:click="SubmitNewFatura()" type="button" class="noselect" style="margin-top: 20px">SİPARİŞİ ONAYLA</button>
+            </form>
+        </div>
+
+
+        
+        <div class="right-side" style="max-height: 535px; max-width: 600px; right: 55%">
+            <h3 v-if="report_results.results">ARAMA SONUÇLARI</h3>
+            <h3 v-else-if="report_results.query == ''">ARAMA RAPORLARI</h3>
+            <br />
+            <form class="noselect">
+                <input v-model="offender_search" type="text" class="noselect" placeholder="Tam veya kısmi ad" required>
+                <button v-on:click="OffenderSearch()" type="button" class="noselect">ARA</button>
+            </form>
+
+            <div v-if="offender_results.query" style="max-height: 435px; max-width: 600px; right: 55%">
+                <h3>ARAMA SONUÇLARI</h3>
+                <h4 style="margin: 10px 1px 30px 1px;">'{{ offender_results.query }}' İçin Arama Sonuçları...</h4>
+                <span v-if="offender_results.results" v-for="offender in offender_results.results">
+                    <button type="button" class="noselect" v-on:click="faturalar_new.name = offender.firstname + ' ' + offender.lastname; faturalar_new.surname = offender.lastname; faturalar_new.firstname = offender.firstname; faturalar_new.surname = offender.lastname" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offender.firstname }} {{ offender.lastname }}</button>
+                    <br />
+                </span>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+    <div class="kapat" v-if="page == 'Fatura Detay'">
+ 
+        <br />
+        <div class="center" style="max-width: 1000px; float: unset; margin: 0 auto;">
+            <h3>KESİLEN KİŞİ</h3>
+            <h4 v-if="faturalar_selected.target"> {{ faturalar_selected.names}} </h4>
+            <h4 v-else-if="faturalar_selected.target == null"> ... </h4>
+            <h3>KESEN İSİM</h3>
+            <h4 v-if="faturalar_selected.sender"> {{ faturalar_selected.name2}} </h4>
+            <h4 v-else-if="faturalar_selected.sender == null"> ... </h4>
+            <h3>BAŞLIK</h3>
+            <h4 v-if="faturalar_selected.label"> {{ faturalar_selected.label }} </h4>
+            <h4 v-else-if="faturalar_selected.label == null"> ... </h4>
+            <h3>ÜCRET</h3>
+            <h4 v-if="faturalar_selected.amount"> {{ faturalar_selected.amount }} </h4>
+            <h4 v-else-if="faturalar_selected.amount == null"> ... </h4>
+            <br />
+            <button type="button" v-on:click="DeleteFatura()" class="noselect">FATURAYI SİL</button>           
+            <br />
+            <button type="button" v-on:click="changePage('Faturalar')" id="Faturalar" class="noselect">FATURALARA GERİ DÖN</button>
+        </div>
+    </div>
+
+    <div v-if="page == 'Search Offenders'">
+
+
+
+        <form class="noselect">
+            <input v-model="offender_search" type="text" class="noselect" placeholder="Kişi Adı" required>
+            <button v-on:click="OffenderSearch()" type="button" class="noselect">ARA</button>
+        </form>
+    
+
+        <div class="left-side" style="max-height: 500px; width: 220px; padding-bottom: 20% ">
+            <h3>İSİM</h3>
+            <h4 v-if="offender_selected.firstname"> {{ offender_selected.firstname }} {{ offender_selected.lastname }} </h4>
+            <h4 v-else-if="offender_selected.name == null"> ... </h4>
+            <h3>NOTLAR</h3>
+            <h4 v-if="offender_selected.notes"> {{ offender_selected.notes }} </h4>
+            <h4 v-if="offender_selected.haswarrant"> {{ offender_selected.firstname}} {{offender_selected.lastname}} emir uygulanıyor... </h4>
+            <h4 v-else-if="offender_selected.notes == '' && !offender_selected.haswarrant"> ... </h4>
+        </span>
+            <h3>RUHSATLAR</h3>
+            <h4 v-if="offender_selected.licenses == false"> ... </h4>
+            <span v-else-if="offender_selected.licenses" v-for="license in offender_selected.licenses">
+                <h4>{{ license.label }}</h4>
+            </span>
+            <h3>SUÇLAR</h3>
+            <h4 v-if="offender_selected.convictions == null"> ... </h4>
+            <span v-else-if="offender_selected.convictions" v-for="(value, name) in offender_selected.convictions">
+                <h4>{{ name }} x{{ value }}</h4>
+            </span>
+            <h3>KİŞİNİN MAL VARLIĞI</h3>
+            <h4 v-if="offender_selected.varlik == null"> ... </h4>
+            <span v-else-if="offender_selected.varlik" v-for="ing offender_selected.varlik">
+                <h4>NAKİT: {{offender_selected.varlik.money}}</h4>
+                <h4>BANKA: {{offender_selected.varlik.bank}}</h4>
+            </span>
+            <h3>DOĞUM TARİHİ</h3>
+            <h4 v-if="offender_selected.dateofbirth"> {{ offender_selected.dateofbirth }} </h4>
+            <h4 v-else-if="offender_selected.dateofbirth == null"> ... </h4>
+            <br />
+            <button v-if="offender_selected.firstname" type="button" v-on:click="changePage('Edit Offender')" id="edit-offender" class="noselect">PROFİLİ DÜZENLE</button>
+            <button v-if="offender_selected.firstname" type="button" v-on:click="changePage('Submit Report'); report_new.char_id = offender_selected.id; report_new.name = offender_selected.firstname + ' ' + offender_selected.lastname; report_new.focus = 'charges'" id="edit-offender" class="noselect">YENİ SİCİL KAYDI</button>
+        </div>
+
+        <div class="right-side" style="max-height: 435px; max-width: 640px;">
+            
+            <div v-if="offender_results.query">
+                <h3>ARAMA SONUÇLARI</h3>
+                <h4 style="margin: 10px 1px 30px 1px;">'{{ offender_results.query }}' için arama sonuçları...</h4>
+                <span v-if="offender_results.results" v-for="offender in offender_results.results">
+                    <button type="button" class="noselect" v-on:click="OpenOffenderDetails(offender.id)" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offender.firstname }} {{ offender.lastname }}</button>
+                    <br />
+                </span>
+            </div>
+
+            <div v-else-if="offender_results.results == false">
+                <img v-if="offender_selected.mugshot_url"  type="button" v-on:click="changePage('Mugshot')"  v-bind:src="offender_selected.mugshot_url" alt="mugshot" id="mugshot">
+             
+            </div>
+        </div>
+
+    </div>
+
+    <div v-if="page == 'Mugshot'">
+        <div  style="height: 960px; width: 540px;">
+        <img v-if="offender_selected.mugshot_url" type="button" v-on:click="changePage('Search Offenders')" style="margin-right: -685px; margin-top: 45px; width: 200%; border-radius: 15px; border: 5px solid rgb(0, 0, 0);" class="center"  v-bind:src="offender_selected.mugshot_url">
+    </div>
+    </div>
+
+    <div class="kapat" v-if="page == 'Chat'">
+    
+        <form class="noselect">
+            <input v-model="chat_search" type="text" class="noselect" placeholder="Ara" required>
+        </form>
+        <br />
+
+        <div class="right-side" style="max-height: 450px; width: 600px; margin-left: -41%;">
+            <table style="margin: 0 auto;">
+                <tr>
+                    <th>Gönderen</th>
+                    <th>Mesaj</th>
+                    <th>Tarih</th>
+                </tr>
+                <tr v-for="chat in filtered_chat">
+                    <td>{{chat.sender}}</td>
+                    <td style="overflow: hidden; text-overflow: ellipsis; max-width: 500px; max-height: 10px;">{{chat.msg}}</td>
+                    <td style="overflow: hidden; text-overflow: ellipsis; max-width: 500px; max-height: 10px;">{{chat.date}}</td>
+                </tr>
+            </table>    
+            <div style="bottom: 0%">
+             
+            </div>
+        </div>
+        <input v-model="chat_new" type="text" class="noselect" placeholder="Mesajınız" required>
+        <button v-on:click="ChatNew()" type="button" class="noselect" style="margin-top: 470px;">MESAJ GÖNDER</button>
+    </div>
+
+    <div v-if="page == 'Report Details'">
+
+
+        <div class="left-side" style="max-width: 1000px; float: unset; width: 200px; margin: 0 auto; max-height: 650px;">
+            <h3>DATA</h3>
+            <h4 v-if="report_selected.date"> {{ report_selected.date }} </h4>
+            <h4 v-else-if="report_selected.date == null"> ... </h4>
+            <h3>İSİM</h3>
+            <h4 v-if="report_selected.name" v-on:click="OpenOffenderDetailsById(report_selected.char_id)"> {{ report_selected.name }} </h4>
+            <h4 v-else-if="report_selected.name == null"> ... </h4>
+            <template v-if="report_edit.enable == false">
+                <h3>OLAY #{{report_selected.id}}</h3>
+                <h4 v-if="report_selected.title"> {{ report_selected.title }} </h4>
+                <h4 v-else-if="report_selected.title == null"> ... </h4>
+            </template>
+            <template v-else-if="report_edit.enable == true">
+                <h3>OLAY #{{report_selected.id}} (EDIT)</h3>
+                <input v-model="report_edit.data.title" type="text" class="noselect" placeholder="Rapor başlığını girin" class="report-input" style="font-size: 14px;" required>
+            </template>
+            <template v-if="report_edit.enable == false">
+                <h3>DETAYLAR</h3>
+                <h4 v-if="report_selected.incident" style="white-space: pre-line; white-space: pre-wrap;">{{ report_selected.incident }}</h4>
+                <h4 v-else-if="report_selected.incident == null"> ... </h4>
+                <h4 v-if="report_selected.jailtime">Wyrok: {{ report_selected.jailtime }} months</h4>
+            </template>
+            <template v-else-if="report_edit.enable == true">
+                <h3>DETAYLAR (EDIT)</h3>
+                <form>
+                    <textarea v-model="report_edit.data.incident" id="textarea" class="noselect" style="width: 95%; height: 80px; border: 2px solid rgb(0, 0, 0); padding: 7px 15px 5px 15px; margin: unset; font-size: 14px;" onfocus='this.style.height = "";this.style.height = this.scrollHeight + "px"' onkeypress='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Rapor açıklamasını girin" required>
+                    </textarea>
+                </form>
+            </template>
+            <h3>SUÇLAR</h3>
+            <span v-for="(amount, offense) in report_selected.charges" :key="offense">
+                <h4>
+                    {{ offense }} (x{{ amount }})
+                </h4>
+            </span>
+            <h3>ETKİNLİK MEMURU</h3>
+            <h4 v-if="report_selected.author"> {{ report_selected.author }} </h4>
+            <h4 v-else-if="report_selected.author == null"> ... </h4>
+            <br />
+            <button type="button" v-on:click="changePage('Search Reports')" id="search-reports" class="noselect">GERİ DÖN</button>
+            <button v-if="report_edit.enable == false" type="button" v-on:click="SentencePlayer()" class="noselect">FATURA KES</button>
+            <button v-if="report_edit.enable == false" type="button" v-on:click="ToggleReportEdit()" class="noselect">DÜZENLEME</button>
+            <button v-if="report_edit.enable == false" type="button" v-on:click="DeleteSelectedReport()" class="noselect">SİL</button>
+            <template v-else-if="report_edit.enable">
+                <button type="button" v-if="report_edit.data.incident && report_edit.data.title" v-on:click="SaveReportEditChanges();" class="noselect">KAYDET</button>
+                <button type="button" v-on:click="ToggleReportEdit();" class="noselect">İPTAL</button>
+            </template>
+        </div>
+    </div>
+
+    <div v-if="page == 'Edit Offender'">
+
+
+        <div class="left-side">
+            <form class="noselect">
+                <input style="margin-top: 20px" v-model="offender_changes.notes" class="no-select" type="text" placeholder="Notlar">
+                <input style="margin-top: 20px" class="kapat" v-model="offender_changes.mugshot_url" class="noselect" type="text" placeholder="Kişinin fotoğraf URLsi">
+                <h3 style="margin-top: 20px">LİSANSLAR</h3>
+                <h4 v-if="offender_changes.licenses == false"> ... </h4>
+                <span v-else-if="offender_changes.licenses" v-for="license in offender_changes.licenses">
+                    <h4>
+                        <span v-on:click="RemoveLicense(license)" style="color: rgb(0, 0, 0); font-weight: all;">(-)</span> 
+                        {{ license.label }}
+                    </h4>
+                </span>
+                <br />
+                <button type="button" class="noselect" v-on:click="SaveOffenderChanges()" style="margin-top: 20px">DEĞİŞİKLİKLERİ KAYDET</button>
+                
+                <button type="button" class="noselect" v-on:click="takePhoto()" style="margin-top: 20px; margin-left:10px;">KİŞİNİN FOTOĞRAFINI ÇEK</button>
+            </form>
+        </div>
+        <div class="right-side">
+            <h3>SUÇLAR</h3>
+            <h4 v-if="offender_changes.convictions == null || (offender_changes.convictions && Object.keys(offender_changes.convictions).length == 0)"> ... </h4>
+            <span v-else-if="offender_changes.convictions" v-for="(value, name) in offender_changes.convictions">
+                <h4>
+                    <span v-on:click="RemoveConviction(name)" style="color: rgb(0, 0, 0); font-weight: all;">(-)</span> 
+                    {{ name }} x{{ value }}
+                </h4>
+            </span>
+            <br />
+            <button type="button" class="noselect" v-on:click="changePage('Search Offenders')">PROFİLE GERİ DÖN</button>
+        </div>
+    </div>
+
+    <div class="kapat" v-if="page == 'Warrants'">
+ 
+        <form class="noselect">
+            <input v-model="warrant_search" type="text" class="noselect" placeholder="Ara" required>
+        </form>
+        <br />
+
+        <div style="width:100%; float: unset; margin: 0 auto;">
+            <table v-if="filtered_warrants.length > 0" style="margin: 0 auto;">
+                <tr>
+                    <th>Veri</th>
+                    <th>Rapor</th>
+                    <th>Çıkış Tarihi</th>
+                    <th>Sona Eriyor</th>
+                </tr>
+                <tr v-for="warrant in filtered_warrants" v-on:click="changePage('Warrant Details'); warrant_selected = warrant;">
+                    <td>{{warrant.name}}</td>
+                    <td style="overflow: hidden; text-overflow: ellipsis; max-width: 500px; max-height: 10px;">{{warrant.report_title}}</td>
+                    <td>{{warrant.date}}</td>
+                    <td style="padding: 5px;">{{warrant.expire_time}}</td>
+                </tr>
+            </table>
+            <h4 v-else-if="filtered_warrants.length == 0" style="text-align: center; font-size: 20px; font-weight: bold;"><br />Arama Bulunamadı!</h4>
+            <div style="bottom: 0%">
+                <button v-on:click="changePage('Submit Warrant')" type="button" class="noselect" style="margin-top: 30px;">YENİ KAYIT</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="kapat" v-if="page == 'Submit Warrant'">
+   
+
+        <div class="left-side" style="position: absolute; float: none; top: 15%; max-height: 550px;">
+            <form class="noselect">
+                <h3>RAPOR</h3>
+                <h4 v-if="warrant_new.report_title" style="font-size: 14px;"> {{ warrant_new.report_title }} </h4>
+                <h4 v-else-if="warrant_new.report_title == null"> ... </h4>
+                <h3>İSİM</h3>
+                <h4 v-if="warrant_new.name" style="font-size: 14px;"> {{ warrant_new.name }} </h4>
+                <h4 v-else-if="warrant_new.name == null"> ... </h4>
+              
+                <input v-model="warrant_new.notes" style="font-size: 14px; width: 400px;" type="text" class="noselect" placeholder="Not giriniz (Opsiyonel)" class="report-input" required>
+                <h3>‏‏‎ ‎‏‏‎ ‎</h3>
+                <h4 v-if="Object.keys(warrant_new.charges).length == 0"> ... </h4>
+                <span v-else-if="Object.keys(warrant_new.charges).length > 0" v-for="(amount, offense in warrant_new.charges" :key="offense">
+                    <h4 style="font-size: 14px;">
+                        {{ offense }} (x{{ amount }})
+                    </h4>
+                </span>
+                <button v-if="warrant_new.report_id && warrant_new.char_id" v-on:click="SubmitNewWarrant()" type="button" class="noselect" style="margin-top: 20px">SİPARİŞİ ONAYLA</button>
+            </form>
+        </div>
+
+        <div class="right-side" style="max-height: 535px; max-width: 600px; right: 55%">
+            <h3 v-if="report_results.results">ARAMA SONUÇLARI</h3>
+            <h3 v-else-if="report_results.query == ''">ARAMA RAPORLARI</h3>
+            <br />
+            <form class="noselect">
+                <input v-model="warrant_new.report_search" type="text" class="noselect" placeholder="Name or Incident ID" required>
+                <button v-on:click="WarrantReportSearch()" type="button" class="noselect" >ARA</button>
+            </form>
+            <div v-if="report_results.results">
+                <h4 style="margin: 10px 1px 30px 1px;">'{{ warrant_new.report_search }}' İçin Arama Sonuçları...</h4>
+                <span v-if="report_results.results" v-for="result in report_results.results">
+                    <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                    <button type="button" class="noselect" v-on:click="warrant_new.report_title = result.title; warrant_new.name = result.name; warrant_new.charges = result.charges; warrant_new.report_id = result.id; warrant_new.char_id = result.char_id;" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} - {{ result.name }} </button>
+                    <br />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="kapat" v-if="page == 'Warrant Details'">
+ 
+
+        <div class="left-side" style="max-width: 900px; float: unset; margin: 0 auto;">
+            <h3>VERİ</h3>
+            <h4 v-if="warrant_selected.date"> {{ warrant_selected.date }} </h4>
+            <h4 v-else-if="warrant_selected.date == null"> ... </h4>
+            <h3>İSİM</h3>
+            <h4 v-if="warrant_selected.name" v-on:click="OpenOffenderDetailsById(warrant_selected.char_id)"> {{ warrant_selected.name }} </h4>
+            <h4 v-else-if="warrant_selected.name == null"> ... </h4>
+            <h3>RAPOR</h3>
+            <h4 v-if="warrant_selected.report_title" v-on:click="OpenReportById(warrant_selected.report_id)"> {{ warrant_selected.report_title }} </h4>
+            <h4 v-else-if="warrant_selected.report_title == null"> ... </h4>
+            <h3>NOTLAR</h3>
+            <h4 v-if="warrant_selected.notes"> {{ warrant_selected.notes }} </h4>
+            <h4 v-else-if="warrant_selected.notes == null"> ... </h4>
+            <h3>SUÇLARI</h3>
+            <span v-for="(amount, offense) in warrant_selected.charges" :key="offense">
+                <h4>
+                    {{ offense }} (x{{ amount }})
+                </h4>
+            </span>
+            <h3>YAZAR</h3>
+            <h4 v-if="warrant_selected.author"> {{ warrant_selected.author }} </h4>
+            <h4 v-else-if="warrant_selected.author == null"> ... </h4>
+            <h3>SÜRESİ</h3>
+            <h4 v-if="warrant_selected.expire_time"> {{ warrant_selected.expire_time }} </h4>
+            <h4 v-else-if="warrant_selected.expire_time == null"> ... </h4>
+            <br />
+            <button type="button" v-on:click="changePage('Warrants')" id="warrants" class="noselect">GARANTİLERE GERİ DÖN</button>
+            <button type="button" v-on:click="DeleteSelectedWarrant()" class="noselect">SİL</button>
+        </div>
+    </div>
+</main>
+</div> 
+</div>
+
+
+    <script src="vue.min.js"></script>
+    <script
+    src = "https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin = "anonymous">
+    </script>
+    <script src="script.js"></script>
+  </body>
+  </html>
